@@ -1,5 +1,5 @@
 # Contrastive Learning on CIFAR-10 with PyTorch
-![PyTorch](https://img.shields.io/badge/PyTorch-%23EE4C2C.svg?logo=PyTorch&logoColor=white) ![Python](https://img.shields.io/badge/python-3.8+-blue) ![License](https://img.shields.io/badge/license-MIT-green) ![CI](https://img.shields.io/badge/CI-passing-brightgreen)
+![PyTorch](https://img.shields.io/badge/PyTorch-%23EE4C2C.svg?logo=PyTorch&logoColor=white) ![Python](https://img.shields.io/badge/python-3.8+-blue)
 
 Advanced self-supervised learning implementation featuring ResNet architectures, NT-Xent loss, and comprehensive visualization tools.
 
