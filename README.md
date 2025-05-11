@@ -23,9 +23,6 @@ Advanced self-supervised learning implementation featuring ResNet architectures,
 - Multi-GPU training support
 
 ## Installation
-# Clone repository
-git clone https://github.com/yourusername/contrastive-learning.git
-cd contrastive-learning
 
 # Install dependencies (Python 3.8+ required)
 pip install torch torchvision numpy matplotlib scikit-learn tqdm pillow pytorch-lightning
