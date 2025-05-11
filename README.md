@@ -10,8 +10,7 @@ Advanced self-supervised learning implementation featuring ResNet architectures,
 - [Training](#-training)
 - [Evaluation](#-evaluation)
 - [Visualization](#-visualization)
-- [Contributing](#-contributing)
-- [License](#-license)
+  
 
 ##  Features
 - Custom augmentation pipeline (8 transformations)
@@ -39,7 +38,7 @@ python visualize.py --model_path runs/checkpoint.pth --output_dir results/
 | Argument | Default | Description |
 |----------|---------|-------------|
 | --backbone | resnet18 | Architecture (resnet18/34/50) |
-| --epochs | 20 | Training epochs |
+| --epochs | 10 | Training epochs |
 | --batch_size | 256 | Batch size |
 | --temperature | 0.1 | NT-Xent loss temperature |
 | --lr | 1e-3 | Learning rate |
@@ -47,9 +46,9 @@ python visualize.py --model_path runs/checkpoint.pth --output_dir results/
 ### Example Training Command
 python train.py \
     --backbone resnet50 \
-    --epochs 50 \
+    --epochs 10 \
     --batch_size 512 \
-    --lr 5e-4 \
+    --lr  1e-3 \
     --temperature 0.07 \
     --gpus 2
 
@@ -57,9 +56,9 @@ python train.py \
 ### Expected Metrics
 | Epoch | Loss | PosSim | NegSim | Notes |
 |-------|------|--------|--------|-------|
-| 1 | 4.123 | 0.65 | 0.15 | Warmup phase |
-| 10 | 2.456 | 0.78 | 0.08 | Learning progressing |
-| 20 | 1.892 | 0.85 | 0.03 | Convergence |
+| 1 | 0.3161 | 0.65 | 0.15 | Warmup phase |
+| 5 | 0.0961 | 0.78 | 0.08 | Learning progressing |
+| 10 |0.0680 | 0.85 | 0.03 | Convergence |
 
 ## Visualization
 ### Available Tools
