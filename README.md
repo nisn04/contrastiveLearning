@@ -28,7 +28,7 @@ pip install torch torchvision numpy matplotlib scikit-learn tqdm pillow pytorch-
 
 ## Quick Start
 # Train default model (ResNet18)
-python train.py --backbone resnet18 --epochs 20 --batch_size 256
+python train.py --backbone resnet18 --epochs 10 --batch_size 256
 
 # Generate embeddings visualization
 python visualize.py --model_path runs/checkpoint.pth --output_dir results/
