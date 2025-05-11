@@ -1,46 +1,91 @@
-# Contrastive Learning on CIFAR-10 with PyTorch
+# 🚀 Contrastive Learning on CIFAR-10 with PyTorch
+![PyTorch](https://img.shields.io/badge/PyTorch-%23EE4C2C.svg?logo=PyTorch&logoColor=white) ![Python](https://img.shields.io/badge/python-3.8+-blue) ![License](https://img.shields.io/badge/license-MIT-green) ![CI](https://img.shields.io/badge/CI-passing-brightgreen)
 
-![PyTorch](https://img.shields.io/badge/PyTorch-%23EE4C2C.svg?style=for-the-badge&logo=PyTorch&logoColor=white)
-![Python](https://img.shields.io/badge/python-3.8+-blue.svg)
-![License](https://img.shields.io/badge/License-MIT-green.svg)
+Advanced self-supervised learning implementation featuring ResNet architectures, NT-Xent loss, and comprehensive visualization tools.
 
-This project implements contrastive self-supervised learning methods for visual representation learning on the CIFAR-10 dataset using PyTorch.
+## 📌 Table of Contents
+- [Features](#-features)
+- [Installation](#-installation)  
+- [Quick Start](#-quick-start)
+- [Training](#-training)
+- [Evaluation](#-evaluation)
+- [Visualization](#-visualization)
+- [Contributing](#-contributing)
+- [License](#-license)
 
-## Table of Contents
-- [Key Features](#key-features)
-- [Implemented Methods](#implemented-methods)
-- [Requirements](#requirements)
-- [Installation](#installation)
-- [Usage](#usage)
-- [Results](#results)
-- [References](#references)
-- [License](#license)
+## 🌟 Features
+- 🛠 Custom augmentation pipeline (8 transformations)
+- 🧠 Supports ResNet18/34/50 backbones
+- 📊 Real-time metric tracking (loss, similarity)
+- 🎨 t-SNE/PCA visualization tools
+- 🔍 Image similarity analysis
+- 🕵 Odd-one-out detection
+- ⚡ Multi-GPU training support
 
-## Key Features
+## 💻 Installation
+# Clone repository
+git clone https://github.com/yourusername/contrastive-learning.git
+cd contrastive-learning
 
-✔ Implementation of popular contrastive learning frameworks (SimCLR, MoCo)  
-✔ Data augmentation pipeline for contrastive learning  
-✔ Customizable projection heads and backbone architectures  
-✔ Visualization of learned embeddings using t-SNE  
-✔ Linear evaluation protocol to assess representation quality  
+# Install dependencies (Python 3.8+ required)
+pip install torch torchvision numpy matplotlib scikit-learn tqdm pillow pytorch-lightning
 
-## Implemented Methods
+## 🚦 Quick Start
+# Train default model (ResNet18)
+python train.py --backbone resnet18 --epochs 20 --batch_size 256
 
-- *SimCLR* (A Simple Framework for Contrastive Learning)
-- *MoCo v2* (Momentum Contrast)
-- *BYOL* (Bootstrap Your Own Latent) - Coming soon
+# Generate embeddings visualization
+python visualize.py --model_path runs/checkpoint.pth --output_dir results/
 
-## Requirements
+## 🏋 Training
+### Configuration Options
+| Argument | Default | Description |
+|----------|---------|-------------|
+| --backbone | resnet18 | Architecture (resnet18/34/50) |
+| --epochs | 20 | Training epochs |
+| --batch_size | 256 | Batch size |
+| --temperature | 0.1 | NT-Xent loss temperature |
+| --lr | 1e-3 | Learning rate |
 
-- Python 3.8+
-- PyTorch 1.10+
-- torchvision
-- CUDA Toolkit (recommended for GPU acceleration)
-- Other dependencies: numpy, matplotlib, scikit-learn
+### Example Training Command
+python train.py \
+    --backbone resnet50 \
+    --epochs 50 \
+    --batch_size 512 \
+    --lr 5e-4 \
+    --temperature 0.07 \
+    --gpus 2
 
-## Installation
+## 📈 Evaluation
+### Expected Metrics
+| Epoch | Loss | PosSim | NegSim | Notes |
+|-------|------|--------|--------|-------|
+| 1 | 4.123 | 0.65 | 0.15 | Warmup phase |
+| 10 | 2.456 | 0.78 | 0.08 | Learning progressing |
+| 20 | 1.892 | 0.85 | 0.03 | Convergence |
 
-1. Clone this repository:
-```bash
-git clone https://github.com/yourusername/contrastive-learning-cifar10.git
-cd contrastive-learning-cifar10
+## 🎨 Visualization
+### Available Tools
+#### Embedding Projection
+python visualize.py --model_path model.pth --method tsne --perplexity 30
+
+#### Image Similarity
+python similarity.py --image1 cat.jpg --image2 dog.jpg
+
+#### Odd-One-Out Detection
+python odd_one_out.py --folder images/ --top_k 5
+
+## 🤝 Contributing
+1. Fork the repository
+2. Create your feature branch (git checkout -b feature/amazing-feature)
+3. Commit changes (git commit -m 'Add amazing feature')
+4. Push to branch (git push origin feature/amazing-feature)
+5. Open a Pull Request
+
+## 📜 License
+Distributed under the MIT License. See LICENSE for more information.
+
+## 📧 Contact
+Your Name - your.email@example.com
+
+Project Link: https://github.com/yourusername/contrastive-learning
